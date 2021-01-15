@@ -19,3 +19,6 @@ website/_tutorials/
 website/static/files/
 website/pages/tutorials/*
 !website/pages/tutorials/index.js
+
+## Pycharm
+*.idea

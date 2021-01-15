@@ -125,6 +125,14 @@ else:
     BuildExtension = torch.utils.cpp_extension.BuildExtension
 
 
+# Add CUB_HOME to os.environ, when the CUDA < 11.0, such as CUDA 10.1, 10.2
+cuda_version = float(torch.version.cuda)
+
+if cuda_version < 11.0:
+    cub_home_dir = os.path.join(os.path.abspath(__file__), "thirdparty", "cub-1.10.0")
+    os.environ["CUB_HOME"] = cub_home_dir
+
+
 setup(
     name="pytorch3d",
     version=__version__,
